@@ -3,7 +3,7 @@
 // ==============================
 
 function syncPublicSheet() {
-  const sourceSs = SpreadsheetApp.getActiveSpreadsheet();
+  const sourceSs = getSourceSpreadsheet_();
   const sourceSheet = sourceSs.getSheetByName(SHEET_NAME_ORDERS);
 
   if (!sourceSheet) {
@@ -64,12 +64,11 @@ function getPublicSpreadsheet_() {
 }
 
 function getPublicSpreadsheetId_() {
-  const spreadsheetId = String(PUBLIC_SPREADSHEET_ID || '').trim();
-  const match = spreadsheetId.match(/[-\w]{25,}/);
+  const spreadsheetId = getSpreadsheetIdFromValue_(PUBLIC_SPREADSHEET_ID);
 
-  if (!match) {
+  if (!spreadsheetId) {
     throw new Error('公開用スプレッドシートIDが設定されていません。');
   }
 
-  return match[0];
+  return spreadsheetId;
 }

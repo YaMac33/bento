@@ -40,6 +40,29 @@ function getScriptTimeZone_() {
   return Session.getScriptTimeZone() || 'Asia/Tokyo';
 }
 
+function getSourceSpreadsheet_() {
+  const spreadsheetId = getSpreadsheetIdFromValue_(SOURCE_SPREADSHEET_ID);
+
+  if (spreadsheetId) {
+    return SpreadsheetApp.openById(spreadsheetId);
+  }
+
+  const ss = SpreadsheetApp.getActiveSpreadsheet();
+
+  if (!ss) {
+    throw new Error('元スプレッドシートが見つかりません。SOURCE_SPREADSHEET_ID を設定してください。');
+  }
+
+  return ss;
+}
+
+function getSpreadsheetIdFromValue_(value) {
+  const spreadsheetId = String(value || '').trim();
+  const match = spreadsheetId.match(/[-\w]{25,}/);
+
+  return match ? match[0] : '';
+}
+
 function formatErrorForLog_(error) {
   if (!error) {
     return '';

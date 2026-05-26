@@ -122,7 +122,7 @@ function getMenuHeaderIndexes_(headers) {
  * シート取得
  */
 function getSheetByName_(sheetName) {
-  const ss = SpreadsheetApp.getActiveSpreadsheet();
+  const ss = getSourceSpreadsheet_();
   const sheet = ss.getSheetByName(sheetName);
 
   if (!sheet) {

@@ -10,7 +10,7 @@ function handleOrderPost_(e) {
     lock.waitLock(10000);
     locked = true;
 
-    const ss = SpreadsheetApp.getActiveSpreadsheet();
+    const ss = getSourceSpreadsheet_();
     const orderSheet = ss.getSheetByName(SHEET_NAME_ORDERS);
 
     if (!orderSheet) {
