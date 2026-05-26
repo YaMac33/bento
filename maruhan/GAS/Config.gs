@@ -9,7 +9,7 @@ const PUBLIC_SHEET_NAME = '公開用';
 
 // 公開用スプレッドシート
 // URLのままでもOK。getPublicSpreadsheetId_() でIDだけ抽出します。
-const PUBLIC_SPREADSHEET_ID = '1WCJv6eWujP5MuRLeAnlDq691N9jSkbieWPQkAzq20ME';
+const PUBLIC_SPREADSHEET_ID = '13dmrVW86G3ua9xltE_60uVw3ZnXbK7dkuIMnn7oEWPk';
 
 // Slack Webhook URLはスクリプトプロパティに保存する
 const SLACK_WEBHOOK_URL_PROPERTY_KEY = 'SLACK_WEBHOOK_URL';
